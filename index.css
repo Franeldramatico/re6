@@ -1,0 +1,34 @@
+:root{
+  --re-primary: #8a1c1c;
+  --re-accent: #d35400;
+  --re-secondary: #85c441;
+  --re-text: #bdc3c7;
+}
+
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;
+  font-family: Rajdhani, Roboto, sans-serif;
+  background-color: #050505;
+  color: var(--re-text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Basic utility fallbacks in case Tailwind isn't loaded */
+.hidden{display:none}
+.flex{display:flex}
+.items-center{align-items:center}
+.justify-center{justify-content:center}
+.w-full{width:100%}
+.h-full{height:100%}
+
+/* Ensure root content is visible */
+#root{min-height:100%;}
+
+/* Small helper for the project's visual accent */
+.accent{color:var(--re-primary)}
+
+/* Make links visible */
+a{color:var(--re-accent)}
