@@ -114,17 +114,6 @@
 </head>
   <body class="bg-re6-black text-re6-text font-body selection:bg-re6-red selection:text-white">
     <div id="root"></div>
-  <audio id="page-audio-fallback" style="display:none" src="./assets/Resident%20Evil%206%20Tribute%20_Carry%20On_%20Original%20Resident%20Evil%20Damnation%20HD-CvyT96gR-CvyT96gR.mp3" preload="none"></audio>
-  <script>
-    // Ensure the app's audio element uses the local file (override bundled src if needed)
-    document.addEventListener('DOMContentLoaded', function(){
-      try{
-        var a = document.querySelector('audio');
-        if(a){
-          a.src = 'musica/Resident Evil 6 Tribute [Carry On] Original Resident Evil Damnation HD.mp3';
-        }
-      }catch(e){console.error('audio override failed', e)}
-    });
-  </script>
+  <audio id="page-audio-fallback" style="display:none" src="musica/Resident Evil 6 Tribute [Carry On] Original Resident Evil Damnation HD.mp3" preload="none"></audio>
 </body>
 </html>
