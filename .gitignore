@@ -8,7 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
+# dist (comentado para permitir deploy desde main/root)
 dist-ssr
 *.local
 
