@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Background from './components/Background';
 import Document from './components/Document';
 import OverlayEffects from './components/OverlayEffects';
-import { Settings, Volume2, VolumeX, Activity, X } from 'lucide-react';
+import { Settings, Activity, X } from 'lucide-react';
 
 // Paletas de Color RE6 - Traducidas y Temáticas
 const THEMES = [
@@ -57,10 +57,6 @@ const App: React.FC = () => {
   const [activeTheme, setActiveTheme] = useState(THEMES[0]);
   const [showThemeMenu, setShowThemeMenu] = useState(false);
 
-  // Estado de Audio
-  const [isMuted, setIsMuted] = useState(true);
-  const audioRef = useRef<HTMLAudioElement>(null);
-
 
   useEffect(() => {
     let step = 0;
@@ -77,17 +73,6 @@ const App: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const toggleAudio = () => {
-    if (audioRef.current) {
-      if (isMuted) {
-        audioRef.current.volume = 0.3;
-        audioRef.current.play().catch(e => console.error("Error al reproducir:", e));
-      } else {
-        audioRef.current.pause();
-      }
-      setIsMuted(!isMuted);
-    }
-  };
 
   return (
     <div
@@ -97,13 +82,7 @@ const App: React.FC = () => {
       <div className="fixed inset-0 bg-[var(--re-bg)] transition-colors duration-1000 -z-20"></div>
       <Background themeId={activeTheme.id} />
 
-      {/* Música de ambiente estilo RE6 (Tensión/Tecnología) */}
-      <audio
-        ref={audioRef}
-        loop
-        preload="auto"
-        src={`${import.meta.env.BASE_URL}musica/Resident Evil 6 Tribute [Carry On] Original Resident Evil Damnation HD.mp3`}
-      />
+
 
       {/* --- MENU SUPERIOR --- */}
       {loadingState === 'complete' && (
@@ -118,20 +97,6 @@ const App: React.FC = () => {
           {/* Controles de Sistema (Derecha) */}
           <div className="flex flex-col items-end gap-2 pointer-events-auto mt-2 mr-1">
             <div className="flex gap-1">
-              {/* Botón Música */}
-              <button
-                onClick={toggleAudio}
-                className="group relative h-8 md:h-10 px-4 bg-black/60 border-t border-b border-[var(--re-primary)] transform skew-x-[-12deg] hover:bg-[var(--re-primary)] hover:text-black transition-all flex items-center justify-center overflow-hidden"
-              >
-                <div className="transform skew-x-[12deg] flex items-center gap-2">
-                  {isMuted ? <VolumeX size={16} /> : <Volume2 size={16} className="animate-pulse" />}
-                  <span className="font-header font-bold text-[10px] tracking-widest hidden md:block">
-                    {isMuted ? 'MUSICA: OFF' : 'MUSICA: ON'}
-                  </span>
-                </div>
-                <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500"></div>
-              </button>
-
               {/* Botón Filtros */}
               <button
                 onClick={() => setShowThemeMenu(!showThemeMenu)}
