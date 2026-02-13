@@ -61,8 +61,6 @@ const App: React.FC = () => {
   const [isMuted, setIsMuted] = useState(true);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  // Use local audio file placed in `musica/` folder
-  const audioUrl = new URL('./musica/Resident Evil 6 Tribute [Carry On] Original Resident Evil Damnation HD.mp3', import.meta.url).href;
 
   useEffect(() => {
     let step = 0;
@@ -103,7 +101,7 @@ const App: React.FC = () => {
       <audio 
         ref={audioRef} 
         loop 
-        src={audioUrl}
+        src="musica/Resident Evil 6 Tribute [Carry On] Original Resident Evil Damnation HD.mp3"
       />
 
       {/* --- MENU SUPERIOR --- */}
