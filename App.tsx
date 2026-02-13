@@ -101,7 +101,7 @@ const App: React.FC = () => {
       <audio 
         ref={audioRef} 
         loop 
-        src="musica/Resident Evil 6 Tribute [Carry On] Original Resident Evil Damnation HD.mp3"
+        src="musica/carry-on.mp3"
       />
 
       {/* --- MENU SUPERIOR --- */}
