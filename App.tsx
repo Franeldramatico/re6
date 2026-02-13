@@ -102,7 +102,7 @@ const App: React.FC = () => {
         ref={audioRef} 
         loop 
         preload="auto"
-        src="musica/Resident Evil 6 Tribute [Carry On] Original Resident Evil Damnation HD.mp3"
+        src="/musica/Resident Evil 6 Tribute [Carry On] Original Resident Evil Damnation HD.mp3"
       />
 
       {/* --- MENU SUPERIOR --- */}
