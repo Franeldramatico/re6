@@ -61,6 +61,9 @@ const App: React.FC = () => {
   const [isMuted, setIsMuted] = useState(true);
   const audioRef = useRef<HTMLAudioElement>(null);
 
+  // Use local audio file placed in `musica/` folder
+  const audioUrl = new URL('./musica/Resident Evil 6 Tribute [Carry On] Original Resident Evil Damnation HD.mp3', import.meta.url).href;
+
   useEffect(() => {
     let step = 0;
     const interval = setInterval(() => {
@@ -100,7 +103,7 @@ const App: React.FC = () => {
       <audio 
         ref={audioRef} 
         loop 
-        src="https://cdn.pixabay.com/download/audio/2024/02/07/audio_c3e62a033b.mp3?filename=cyberpunk-city-187588.mp3" 
+        src={audioUrl}
       />
 
       {/* --- MENU SUPERIOR --- */}
